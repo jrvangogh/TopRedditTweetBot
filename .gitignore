@@ -64,4 +64,4 @@ target/
 *.csv
 
 # API Key Storage
-api_info.py
+apiInfo.py
