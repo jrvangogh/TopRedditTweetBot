@@ -27,7 +27,8 @@ import time
 SUBREDDIT_NAME = 'ENTER SUBREDDIT NAME HERE'
 THRESHOLD = 'ENTER THRESHOLD HERE'
 AGENT_NAME = 'ENTER AGENT NAME HERE'
-GET_LIMIT = 'ENTER LIMIT HERE'     # Limit on number of submissions to get at once
+GET_LIMIT = 20     # Limit on number of submissions to get at once
+WAIT_TIME = 120    # Time (in seconds) to wait before rechecking submissions
 
 
 # Initialize Tweepy
@@ -94,12 +95,14 @@ is_initializing = True
 while(True):
     after = None
     while(after is not '0'):
-        posts = sub.get_top_from_month(limit=GET_LIMIT, params={'after':after})
+        posts = list(sub.get_top_from_month(
+                     limit=GET_LIMIT, params={'after':after}))
         time.sleep(3)
         
         after = tweet_posts(posts, tweeted, THRESHOLD, tweep, is_initializing)
     
-    time.sleep(120)
+    is_initializing = False
+    time.sleep(WAIT_TIME)
 
 
 
