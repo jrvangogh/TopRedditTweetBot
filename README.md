@@ -1,5 +1,5 @@
 # TopRedditTweetBot -- v. 1.0
-### A bot that monitors a single subreddit and tweets posts which surpass a score threshold
+## A bot that monitors a single subreddit and tweets posts which surpass a score threshold
 ##### Author: Jacob van Gogh (jrvangogh@gmail.com)
 &nbsp;
 
